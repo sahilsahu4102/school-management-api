@@ -20,6 +20,7 @@ const pool = mysql.createPool({
   queueLimit: 0,
   enableKeepAlive: true,
   keepAliveInitialDelay: 0,
+  ssl: process.env.NODE_ENV === 'production' ? { minVersion: 'TLSv1.2', rejectUnauthorized: true } : undefined
 });
 
 // ──────────────────────────────────────────────
