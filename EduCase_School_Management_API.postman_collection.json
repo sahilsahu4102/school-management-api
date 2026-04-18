@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "b3e0c4a6-7d12-4c5e-8b5d-e2d9a3b4f6c1",
+		"name": "EduCase School Management API",
+		"description": "API collection for managing schools. Features Haversine distance sorting.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Add a School",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Delhi Public School\",\n    \"address\": \"Mathura Road, New Delhi, 110003\",\n    \"latitude\": 28.5839,\n    \"longitude\": 77.2410\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/addSchool",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"addSchool"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. List Nearby Schools",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/listSchools?latitude=28.6139&longitude=77.2090",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"listSchools"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "28.6139",
+							"description": "User's latitude (-90 to 90)"
+						},
+						{
+							"key": "longitude",
+							"value": "77.2090",
+							"description": "User's longitude (-180 to 180)"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
